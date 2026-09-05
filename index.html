@@ -1,0 +1,799 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>My Personal Blog</title>
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #09090b;
+            color: #f5f5f5;
+            line-height: 1.6;
+        }
+
+        /* ================= NAVBAR ================= */
+
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            padding: 20px 8%;
+
+            background: rgba(9, 9, 11, 0.8);
+            backdrop-filter: blur(12px);
+
+            border-bottom: 1px solid #222;
+
+            z-index: 1000;
+        }
+
+        .logo {
+            font-size: 22px;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+
+        .logo span {
+            color: #8b5cf6;
+        }
+
+        nav ul {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+        }
+
+        nav a {
+            color: #aaa;
+            text-decoration: none;
+            font-size: 14px;
+
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            color: #fff;
+        }
+
+        /* ================= HERO ================= */
+
+        .hero {
+            min-height: 100vh;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            padding: 120px 10% 80px;
+
+            gap: 60px;
+        }
+
+        .hero-text {
+            max-width: 600px;
+        }
+
+        .small-title {
+            color: #8b5cf6;
+            font-size: 14px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 15px;
+        }
+
+        .hero h1 {
+            font-size: clamp(45px, 7vw, 80px);
+            line-height: 1;
+            margin-bottom: 25px;
+        }
+
+        .hero h1 span {
+            color: #8b5cf6;
+        }
+
+        .hero p {
+            color: #999;
+            font-size: 18px;
+            max-width: 500px;
+            margin-bottom: 30px;
+        }
+
+        .buttons {
+            display: flex;
+            gap: 15px;
+        }
+
+        .btn {
+            padding: 13px 22px;
+            border-radius: 8px;
+
+            text-decoration: none;
+            font-size: 14px;
+
+            transition: 0.3s;
+        }
+
+        .primary {
+            background: #8b5cf6;
+            color: white;
+        }
+
+        .primary:hover {
+            background: #7c3aed;
+            transform: translateY(-2px);
+        }
+
+        .secondary {
+            border: 1px solid #333;
+            color: #ddd;
+        }
+
+        .secondary:hover {
+            background: #18181b;
+        }
+
+        /* ================= PROFILE IMAGE ================= */
+
+        .profile-container {
+            position: relative;
+        }
+
+        .profile {
+            width: 320px;
+            height: 320px;
+
+            border-radius: 50%;
+
+            object-fit: cover;
+
+            border: 1px solid #333;
+
+            box-shadow:
+                0 0 80px rgba(139, 92, 246, 0.15);
+        }
+
+        /* ================= SECTIONS ================= */
+
+        section {
+            padding: 100px 10%;
+        }
+
+        .section-title {
+            margin-bottom: 50px;
+        }
+
+        .section-title p {
+            color: #8b5cf6;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            font-size: 12px;
+            margin-bottom: 8px;
+        }
+
+        .section-title h2 {
+            font-size: 38px;
+        }
+
+        /* ================= ABOUT ================= */
+
+        .about {
+            background: #0f0f12;
+        }
+
+        .about-content {
+            max-width: 800px;
+        }
+
+        .about-content p {
+            color: #aaa;
+            font-size: 17px;
+            margin-bottom: 20px;
+        }
+
+        /* ================= INTERESTS ================= */
+
+        .interests {
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            gap: 20px;
+        }
+
+        .interest-card {
+            background: #111114;
+
+            border: 1px solid #242428;
+
+            padding: 30px;
+
+            border-radius: 12px;
+
+            transition: 0.3s;
+        }
+
+        .interest-card:hover {
+            transform: translateY(-6px);
+            border-color: #8b5cf6;
+        }
+
+        .interest-icon {
+            font-size: 30px;
+            margin-bottom: 20px;
+        }
+
+        .interest-card h3 {
+            margin-bottom: 10px;
+        }
+
+        .interest-card p {
+            color: #888;
+            font-size: 14px;
+        }
+
+        /* ================= BLOG ================= */
+
+        .blog {
+            background: #09090b;
+        }
+
+        .posts {
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            gap: 20px;
+        }
+
+        .post {
+            background: #111114;
+
+            border: 1px solid #242428;
+
+            border-radius: 12px;
+
+            overflow: hidden;
+
+            transition: 0.3s;
+        }
+
+        .post:hover {
+            transform: translateY(-5px);
+        }
+
+        .post-image {
+            height: 180px;
+
+            background: linear-gradient(
+                135deg,
+                #18181b,
+                #27272a
+            );
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            font-size: 45px;
+        }
+
+        .post-content {
+            padding: 25px;
+        }
+
+        .post-date {
+            color: #8b5cf6;
+            font-size: 12px;
+        }
+
+        .post h3 {
+            margin: 10px 0;
+        }
+
+        .post p {
+            color: #888;
+            font-size: 14px;
+        }
+
+        /* ================= SOCIAL ================= */
+
+        .social {
+            background: #0f0f12;
+
+            text-align: center;
+        }
+
+        .social p {
+            color: #888;
+            margin-bottom: 30px;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .social-links a {
+            text-decoration: none;
+            color: #ddd;
+
+            border: 1px solid #29292e;
+
+            padding: 12px 20px;
+
+            border-radius: 8px;
+
+            transition: 0.3s;
+        }
+
+        .social-links a:hover {
+            background: #8b5cf6;
+            border-color: #8b5cf6;
+            color: white;
+            transform: translateY(-3px);
+        }
+
+        /* ================= FOOTER ================= */
+
+        footer {
+            padding: 30px 10%;
+
+            border-top: 1px solid #222;
+
+            display: flex;
+            justify-content: space-between;
+
+            color: #666;
+
+            font-size: 13px;
+        }
+
+        /* ================= RESPONSIVE ================= */
+
+        @media (max-width: 800px) {
+
+            nav ul {
+                display: none;
+            }
+
+            .hero {
+                flex-direction: column-reverse;
+                text-align: center;
+            }
+
+            .hero p {
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .buttons {
+                justify-content: center;
+            }
+
+            .profile {
+                width: 240px;
+                height: 240px;
+            }
+
+            .interests,
+            .posts {
+                grid-template-columns: 1fr;
+            }
+
+            footer {
+                flex-direction: column;
+                gap: 10px;
+                text-align: center;
+            }
+            .interest-card {
+                text-decoration: none;
+                color: inherit;
+                display: block;
+            }
+
+            .interest-card {
+                text-decoration: none;
+                color: inherit;
+                display: block;
+            }
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <!-- NAVIGATION -->
+
+    <nav>
+
+        <div class="logo">
+            MY<span>BLOG</span>
+        </div>
+
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#interests">Interests</a></li>
+            <li><a href="#blog">Blog</a></li>
+            <li><a href="#social">Social</a></li>
+        </ul>
+
+    </nav>
+
+
+    <!-- HERO -->
+
+    <section class="hero" id="home">
+
+        <div class="hero-text">
+
+            <div class="small-title">
+                Welcome to my space
+            </div>
+
+            <h1>
+                Hey, I'm <span>Melusi Daniel.</span>
+            </h1>
+
+            <p>
+                Welcome to my personal corner of the internet.
+                Here I share my interests, projects, thoughts,
+                photography and things I'm currently enjoying.
+                I will be updating you on a weekly basis.
+            </p>
+
+            <div class="buttons">
+
+                <a href="#about" class="btn primary">
+                    About Me
+                </a>
+
+                <a href="#social" class="btn secondary">
+                    Find Me Online
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <div class="profile-container">
+
+            <!-- Replace profile.jpg with your photo -->
+
+            <img
+                src="C:\Users\User\Downloads\cat.jpg"
+                alt="My Profile Photo"
+                class="profile"
+            >
+
+        </div>
+
+    </section>
+
+
+    <!-- ABOUT -->
+
+    <section class="about" id="about">
+
+        <div class="section-title">
+
+            <p>01 — About</p>
+
+            <h2>A little about me.</h2>
+
+        </div>
+
+        <div class="about-content">
+
+            <p>
+                I'm someone who enjoys learning, creating and
+                exploring new ideas. This website is where I
+                document some of the things I'm interested in.
+            </p>
+
+            <p>
+                Whether it's technology, music, photography,
+                gaming, movies or just random things I discover,
+                you'll find them here. So stay tuned for more updates.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- INTERESTS -->
+
+    <section id="interests">
+
+        <div class="section-title">
+
+            <p>02 — Interests</p>
+
+            <h2>Things I enjoy.</h2>
+
+        </div>
+
+
+        <div class="interests">
+            <a href="technology.html" class="interest-card">
+
+             <div class="interest-icon">
+                💻
+            </div>
+
+            <h3>Technology</h3>
+
+            <p>
+                Web development, editing, AI and
+                discovering new technology.
+            </p>
+
+        </a>
+
+          
+
+
+        
+        <a 
+            href="gaming.html" class="interest-card">
+            <h3>🎮 Gaming</h3>
+            <p>I enjoy playing games, working on gaming projects and sharing my experiences.</p>
+        </a>
+
+
+
+
+            <div class="interest-card">
+
+                <div class="interest-icon">
+                    🎬
+                </div>
+
+                <h3>Movies</h3>
+
+                <p>
+                    Films, directors, stories and
+                    everything that makes movies interesting.
+                </p>
+
+            </div>
+
+
+            <div class="interest-card">
+
+                <div class="interest-icon">
+                    🎵
+                </div>
+
+                <h3>Music</h3>
+
+                <p>
+                    Artists, albums, playlists and
+                    music that I'm currently listening to.
+                </p>
+
+            </div>
+
+
+            <div class="interest-card">
+
+                <div class="interest-icon">
+                    📷
+                </div>
+
+                <h3>Photography</h3>
+
+                <p>
+                    Photos, places I've visited and
+                    moments I want to remember.
+                </p>
+
+            </div>
+
+
+            <div class="interest-card">
+
+                <div class="interest-icon">
+                    🚀
+                </div>
+
+                <h3>Learning</h3>
+
+                <p>
+                    New skills, personal projects and
+                    things I'm currently learning.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- BLOG -->
+
+    <section class="blog" id="blog">
+
+        <div class="section-title">
+
+            <p>03 — Blog</p>
+
+            <h2>Latest thoughts.</h2>
+
+        </div>
+
+
+        <div class="posts">
+
+            <article class="post">
+
+                <div class="post-image">
+                    💻
+                </div>
+
+                <div class="post-content">
+
+                    <span class="post-date">
+                        SEPTEMBER 2026
+                    </span>
+
+                    <h3>
+                        Things I'm learning
+                    </h3>
+
+                    <p>
+                        A collection of things I've been
+                        learning recently and what I've
+                        discovered along the way.
+                    </p>
+
+                </div>
+
+            </article>
+
+
+            <article class="post">
+
+                <div class="post-image">
+                    🎧
+                </div>
+
+                <div class="post-content">
+
+                    <span class="post-date">
+                        AUGUST 2026
+                    </span>
+
+                    <h3>
+                        What I'm listening to
+                    </h3>
+
+                    <p>
+                        Some of the music I've had on
+                        repeat lately.
+                    </p>
+
+                </div>
+
+            </article>
+
+
+            <article class="post">
+
+                <div class="post-image">
+                    📸
+                </div>
+
+                <div class="post-content">
+
+                    <span class="post-date">
+                        AUGUST 2026
+                    </span>
+
+                    <h3>
+                        Recent moments
+                    </h3>
+
+                    <p>
+                        A few photos and memories from
+                        recent experiences.
+                    </p>
+
+                </div>
+
+            </article>
+
+        </div>
+
+    </section>
+
+
+    <!-- SOCIAL -->
+
+    <section class="social" id="social">
+
+        <div class="section-title">
+
+            <p>04 — Social</p>
+
+            <h2>Let's connect.</h2>
+
+        </div>
+
+        <p>
+            You can find me around the internet here.
+        </p>
+
+
+        <div class="social-links">
+
+            <!-- Replace # with your real links -->
+
+            <a href=https://www.instagram.com/m_bibo1/ target="_blank">
+                Instagram
+            </a>
+
+            <a href="https://www.tiktok.com/@melusibibo" target="_blank">
+                TikTok
+            </a>
+
+            <a href="#" target="_blank">
+                X / Twitter
+            </a>
+
+            <a href="https://www.youtube.com/@bibo.1" target="_blank">
+                YouTube
+            </a>
+
+            <a href="https://github.com/ST10525308" target="_blank">
+                GitHub
+            </a>
+
+        </div>
+
+    </section>
+
+
+    <!-- FOOTER -->
+
+    <footer>
+
+        <span>
+            © 2026 Melusi Daniel
+        </span>
+
+    </footer>
+
+</body>
+
+</html>

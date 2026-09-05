@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Technology - My Blog</title>
+
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #09090b;
+            color: white;
+        }
+
+
+        /* ================= NAVIGATION ================= */
+
+        nav {
+            padding: 20px 10%;
+
+            border-bottom: 1px solid #222;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+
+        nav a {
+            color: #aaa;
+
+            text-decoration: none;
+
+            transition: 0.3s;
+        }
+
+
+        nav a:hover {
+            color: white;
+        }
+
+
+        /* ================= MAIN ================= */
+
+        main {
+            max-width: 1000px;
+
+            margin: auto;
+
+            padding: 100px 30px;
+        }
+
+
+        .tag {
+            color: #8b5cf6;
+
+            text-transform: uppercase;
+
+            letter-spacing: 3px;
+
+            font-size: 12px;
+        }
+
+
+        h1 {
+            font-size: 60px;
+
+            margin: 15px 0 25px;
+        }
+
+
+        p {
+            color: #999;
+
+            font-size: 18px;
+
+            line-height: 1.8;
+
+            margin-bottom: 25px;
+        }
+
+
+        /* ================= SKILLS ================= */
+
+        .skills {
+            display: flex;
+
+            gap: 12px;
+
+            flex-wrap: wrap;
+
+            margin: 40px 0;
+        }
+
+
+        .skill {
+            padding: 10px 16px;
+
+            background: #151518;
+
+            border: 1px solid #29292e;
+
+            border-radius: 8px;
+
+            color: #ccc;
+
+            font-size: 14px;
+
+            transition: 0.3s;
+        }
+
+
+        .skill:hover {
+            border-color: #8b5cf6;
+
+            color: white;
+
+            transform: translateY(-3px);
+        }
+
+
+        /* ================= VIDEOS ================= */
+
+        .work-title {
+            margin-top: 70px;
+
+            margin-bottom: 25px;
+        }
+
+
+        .work-title > span {
+            color: #8b5cf6;
+
+            text-transform: uppercase;
+
+            letter-spacing: 3px;
+
+            font-size: 12px;
+        }
+
+
+        .work-title h2 {
+            font-size: 32px;
+
+            margin-top: 8px;
+
+            margin-bottom: 25px;
+        }
+
+
+        /* VIDEO GRID */
+
+        .videos {
+            display: grid;
+
+            grid-template-columns: repeat(2, 1fr);
+
+            gap: 20px;
+
+            margin-bottom: 50px;
+        }
+
+
+        /* VIDEO CARD */
+
+        .video-card {
+            background: #111114;
+
+            border: 1px solid #242428;
+
+            border-radius: 12px;
+
+            overflow: hidden;
+
+            text-decoration: none;
+
+            color: white;
+
+            transition: 0.3s;
+        }
+
+
+        .video-card:hover {
+            transform: translateY(-6px);
+
+            border-color: #8b5cf6;
+
+            background: #15151a;
+        }
+
+
+        /* VIDEO IMAGE */
+
+        .video-thumbnail {
+            width: 100%;
+
+            height: 200px;
+
+            object-fit: cover;
+
+            display: block;
+        }
+
+
+        /* VIDEO CONTENT */
+
+        .video-content {
+            padding: 20px;
+        }
+
+
+        .video-content span {
+            color: #8b5cf6;
+
+            font-size: 11px;
+
+            letter-spacing: 2px;
+        }
+
+
+        .video-content h3 {
+            margin: 8px 0;
+        }
+
+
+        .video-content p {
+            font-size: 14px;
+
+            margin: 0;
+        }
+
+
+        /* ================= BACK BUTTON ================= */
+
+        .back {
+            display: inline-block;
+
+            margin-top: 20px;
+
+            padding: 12px 20px;
+
+            background: #8b5cf6;
+
+            color: white;
+
+            text-decoration: none;
+
+            border-radius: 8px;
+
+            transition: 0.3s;
+        }
+
+
+        .back:hover {
+            background: #7c3aed;
+
+            transform: translateY(-2px);
+        }
+
+
+        /* ================= MOBILE ================= */
+
+        @media (max-width: 700px) {
+
+            h1 {
+                font-size: 42px;
+            }
+
+
+            .videos {
+                grid-template-columns: 1fr;
+            }
+
+
+            .video-thumbnail {
+                height: 220px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- ================= NAVIGATION ================= -->
+
+    <nav>
+
+        <strong>
+            MY<span style="color:#8b5cf6;">BLOG</span>
+        </strong>
+
+
+        <a href="index.html">
+            Home
+        </a>
+
+    </nav>
+
+
+
+    <!-- ================= CONTENT ================= -->
+
+    <main>
+
+
+        <div class="tag">
+            My Interest
+        </div>
+
+
+        <h1>
+            Technology 💻
+        </h1>
+
+
+        <p>
+            Technology is one of my biggest interests.
+            I enjoy learning about computers, programming,
+            artificial intelligence, editing and how websites
+            are built.
+        </p>
+
+
+        <p>
+            I'm currently learning more about HTML, CSS and
+            JavaScript and using them to create my own projects.
+            On the editing side, I'm using After Effects and
+            Blender and trying to learn more about them and
+            how to use them to create my own projects.
+        </p>
+
+
+        <p>
+            This page is where I can share projects I've created,
+            things I've learned and interesting technology that
+            I discover.
+        </p>
+
+
+
+        <!-- ================= SKILLS ================= -->
+
+        <div class="skills">
+
+            <div class="skill">
+                HTML
+            </div>
+
+            <div class="skill">
+                CSS
+            </div>
+
+            <div class="skill">
+                JavaScript
+            </div>
+
+            <div class="skill">
+                After Effects
+            </div>
+
+            <div class="skill">
+                Blender
+            </div>
+
+            <div class="skill">
+                AI
+            </div>
+
+        </div>
+
+
+
+        <!-- ================= BEST WORK ================= -->
+
+        <div class="work-title">
+
+            <span>
+                My Work
+            </span>
+
+            <h2>
+                My Best Videos 🎬
+            </h2>
+
+        </div>
+
+
+        <!-- ================= VIDEO GRID ================= -->
+
+        <div class="videos">
+
+
+            <!-- VIDEO 1 -->
+
+            <a
+                href="https://youtu.be/If-0w_71DMs?si=yktX5OCKVC5IxxrK"
+                target="_blank"
+                class="video-card"
+            >
+
+                <img
+                    src="images/mqdefault_6s.webp"
+                    alt="My Best Video"
+                    class="video-thumbnail"
+                >
+
+
+                <div class="video-content">
+
+                    <span>
+                        FEATURED VIDEO
+                    </span>
+
+                    <h3>
+                        My Best Video
+                    </h3>
+
+                    <p>
+                        One of my favourite projects
+                        that I've created.
+                    </p>
+
+                </div>
+
+            </a>
+
+
+
+            <!-- VIDEO 2 -->
+
+            <a
+                href="https://youtu.be/lxSXimEogmM?si=1r3QnVQOk6EQHd32"
+                target="_blank"
+                class="video-card"
+            >
+
+                <img
+                    src="images/mqdefault_6s (1).webp"
+                    alt="My Favourite Edit"
+                    class="video-thumbnail"
+                >
+
+
+                <div class="video-content">
+
+                    <span>
+                        FEATURED VIDEO
+                    </span>
+
+                    <h3>
+                        My Favourite Edit
+                    </h3>
+
+                    <p>
+                        Another project that I'm
+                        proud of.
+                    </p>
+
+                </div>
+
+            </a>
+
+
+        </div>
+
+
+
+        <!-- ================= BACK ================= -->
+
+        <a href="index.html" class="back">
+            ← Back to Home
+        </a>
+
+
+    </main>
+
+
+</body>
+
+</html>

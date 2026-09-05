@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Favourite Games</title>
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #0b0b0f;
+            color: white;
+            min-height: 100vh;
+        }
+
+
+        /* NAVBAR */
+
+        nav {
+            height: 70px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 8%;
+            border-bottom: 1px solid #242428;
+            background: #0b0b0f;
+        }
+
+        nav h2 {
+            color: #8b5cf6;
+        }
+
+        nav a {
+            color: #aaa;
+            text-decoration: none;
+            margin-left: 25px;
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            color: #8b5cf6;
+        }
+
+
+        /* MAIN */
+
+        main {
+            width: 84%;
+            max-width: 1100px;
+            margin: auto;
+            padding: 100px 0;
+        }
+
+
+        /* PAGE TITLE */
+
+        .page-title {
+            margin-bottom: 50px;
+        }
+
+        .page-title span {
+            color: #8b5cf6;
+            font-size: 12px;
+            letter-spacing: 3px;
+        }
+
+        .page-title h1 {
+            font-size: 55px;
+            margin-top: 10px;
+        }
+
+        .page-title p {
+            color: #aaa;
+            max-width: 650px;
+            margin-top: 20px;
+            line-height: 1.7;
+        }
+
+
+        /* GAMES */
+
+        .games {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+
+        .game {
+            background: #111114;
+            border: 1px solid #242428;
+            border-radius: 14px;
+            overflow: hidden;
+            transition: 0.3s;
+        }
+
+        .game:hover {
+            transform: translateY(-8px);
+            border-color: #8b5cf6;
+            box-shadow: 0 15px 40px rgba(139, 92, 246, 0.12);
+        }
+
+
+        /* GAME IMAGE */
+
+        .game-image {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            display: block;
+        }
+
+
+        /* GAME CONTENT */
+
+        .game-content {
+            padding: 25px;
+        }
+
+        .game-content span {
+            color: #8b5cf6;
+            font-size: 11px;
+            letter-spacing: 2px;
+        }
+
+        .game-content h2 {
+            margin: 8px 0 10px;
+            font-size: 24px;
+        }
+
+        .game-content p {
+            color: #aaa;
+            line-height: 1.6;
+            font-size: 14px;
+        }
+
+
+        /* HOURS */
+
+        .hours {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 25px;
+            margin-bottom: 10px;
+        }
+
+        .hours-title {
+            color: #aaa;
+            font-size: 13px;
+        }
+
+        .hours-number {
+            font-size: 14px;
+            font-weight: bold;
+        }
+
+
+        /* STATUS BAR */
+
+        .progress-bar {
+            width: 100%;
+            height: 8px;
+            background: #242428;
+            border-radius: 20px;
+            overflow: hidden;
+        }
+
+        .progress {
+            height: 100%;
+            background: #8b5cf6;
+            border-radius: 20px;
+        }
+
+
+        /* BACK BUTTON */
+
+        .back {
+            display: inline-block;
+            margin-top: 50px;
+            padding: 12px 20px;
+            border: 1px solid #8b5cf6;
+            border-radius: 8px;
+            color: white;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        .back:hover {
+            background: #8b5cf6;
+        }
+
+
+        /* FOOTER */
+
+        footer {
+            text-align: center;
+            padding: 30px;
+            border-top: 1px solid #242428;
+            color: #666;
+        }
+
+
+        /* MOBILE */
+
+        @media (max-width: 900px) {
+
+            .games {
+                grid-template-columns: 1fr;
+            }
+
+            .page-title h1 {
+                font-size: 42px;
+            }
+
+            .game-image {
+                height: 260px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- NAVBAR -->
+
+    <nav>
+
+        <h2>MY BLOG</h2>
+
+        <div>
+
+            <a href="index.html">Home</a>
+
+            <a href="technology.html">Technology</a>
+
+            <a href="gaming.html">Gaming</a>
+
+        </div>
+
+    </nav>
+
+
+
+    <!-- MAIN -->
+
+    <main>
+
+
+        <!-- TITLE -->
+
+        <section class="page-title">
+
+            <span>GAMING</span>
+
+            <h1>My Favourite Games 🎮</h1>
+
+            <p>
+                These are some of my favourite games.
+                I've included how many hours I've spent playing each one.
+            </p>
+
+        </section>
+
+
+
+        <!-- GAMES -->
+
+        <section class="games">
+
+
+            <!-- ROCKET LEAGUE -->
+
+            <div class="game">
+
+                <img
+                    src="C:\Users\User\OneDrive\Documents\Practice\images\aasaasaa.jpg"
+                    alt="Rocket League"
+                    class="game-image"
+                >
+
+                <div class="game-content">
+
+                    <span>SPORTS / RACING</span>
+
+                    <h2>Rocket League 🚗</h2>
+
+                    <p>
+                        Fast-paced football with rocket-powered cars.
+                        One of my favourite games to play competitively.
+                    </p>
+
+
+                    <div class="hours">
+
+                        <span class="hours-title">
+                            Hours played
+                        </span>
+
+                        <span class="hours-number">
+                            250 hours
+                        </span>
+
+                    </div>
+
+
+                    <div class="progress-bar">
+
+                        <div
+                            class="progress"
+                            style="width: 75%;">
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- GTA 6 -->
+
+            <div class="game">
+
+                <img
+                    src="C:\Users\User\OneDrive\Documents\Practice\images\Official GTA VI cover art.jpg"
+                    alt="Grand Theft Auto VI"
+                    class="game-image"
+                >
+
+                <div class="game-content">
+
+                    <span>ACTION / OPEN WORLD</span>
+
+                    <h2>GTA 6 🔫</h2>
+
+                    <p>
+                        Grand Theft Auto VI is one of the games
+                        I'm most excited to play.
+                    </p>
+
+
+                    <div class="hours">
+
+                        <span class="hours-title">
+                            Hours played
+                        </span>
+
+                        <span class="hours-number">
+                            10 hours
+                        </span>
+
+                    </div>
+
+
+                    <div class="progress-bar">
+
+                        <div
+                            class="progress"
+                            style="width: 20%;">
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- FC 27 -->
+
+            <div class="game">
+
+                <img
+                    src="C:\Users\User\OneDrive\Documents\Practice\images\Mbappe FC27 Cover.jpg"
+                    alt="EA Sports FC 27"
+                    class="game-image"
+                >
+
+                <div class="game-content">
+
+                    <span>SPORTS / FOOTBALL</span>
+
+                    <h2>FC 27 ⚽</h2>
+
+                    <p>
+                        A football game I enjoy playing,
+                        especially when playing matches with friends.
+                    </p>
+
+
+                    <div class="hours">
+
+                        <span class="hours-title">
+                            Hours played
+                        </span>
+
+                        <span class="hours-number">
+                            2.5 hours
+                        </span>
+
+                    </div>
+
+
+                    <div class="progress-bar">
+
+                        <div
+                            class="progress"
+                            style="width: 5%;">
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+        </section>
+
+
+
+        <!-- BACK BUTTON -->
+
+        <a href="gaming.html" class="back">
+            ← Back to Gaming
+        </a>
+
+
+    </main>
+
+
+
+    <!-- FOOTER -->
+
+    <footer>
+
+        <p>© 2026 My Blog. All rights reserved.</p>
+
+    </footer>
+
+
+</body>
+
+</html>

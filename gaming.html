@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Gaming | My Blog</title>
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #0b0b0f;
+            color: white;
+            min-height: 100vh;
+        }
+
+        /* NAVBAR */
+
+        nav {
+            height: 70px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 8%;
+            border-bottom: 1px solid #242428;
+            background: #0b0b0f;
+        }
+
+        nav h2 {
+            color: #8b5cf6;
+        }
+
+        nav a {
+            color: #aaa;
+            text-decoration: none;
+            margin-left: 25px;
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            color: #8b5cf6;
+        }
+
+        /* MAIN */
+
+        main {
+            width: 84%;
+            max-width: 1100px;
+            margin: auto;
+            padding: 100px 0;
+        }
+
+        .page-title {
+            margin-bottom: 60px;
+        }
+
+        .page-title span {
+            color: #8b5cf6;
+            font-size: 12px;
+            letter-spacing: 3px;
+        }
+
+        .page-title h1 {
+            font-size: 55px;
+            margin-top: 10px;
+        }
+
+        .page-title p {
+            color: #aaa;
+            max-width: 600px;
+            margin-top: 20px;
+            line-height: 1.7;
+        }
+
+        /* GAMING CARDS */
+
+        .games {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+
+        .game-card {
+            background: #111114;
+            border: 1px solid #242428;
+            border-radius: 12px;
+            padding: 30px;
+            transition: 0.3s;
+        }
+
+        .game-card:hover {
+            transform: translateY(-6px);
+            border-color: #8b5cf6;
+            background: #15151a;
+        }
+
+        .game-icon {
+            font-size: 40px;
+            margin-bottom: 20px;
+        }
+
+        .game-card h2 {
+            margin-bottom: 10px;
+        }
+
+        .game-card p {
+            color: #aaa;
+            line-height: 1.6;
+        }
+
+        /* FOOTER */
+
+        footer {
+            text-align: center;
+            padding: 30px;
+            border-top: 1px solid #242428;
+            color: #666;
+        }
+
+        /* MOBILE */
+
+        @media (max-width: 700px) {
+
+            .page-title h1 {
+                font-size: 40px;
+            }
+
+            .games {
+                grid-template-columns: 1fr;
+            }
+
+            nav {
+                padding: 0 5%;
+            }
+
+            nav a {
+                margin-left: 10px;
+            }
+
+            .game-card {
+                background: #111114;
+                border: 1px solid #242428;
+                border-radius: 12px;
+                padding: 30px;
+                transition: 0.3s;
+
+                text-decoration: none;
+                color: white;
+                display: block;
+            }       
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <nav>
+
+        <h2>MY BLOG</h2>
+
+        <div>
+            <a href="index.html">Home</a>
+            <a href="technology.html">Technology</a>
+            <a href="gaming.html">Gaming</a>
+        </div>
+
+    </nav>
+
+
+    <main>
+
+        <section class="page-title">
+
+            <span>MY INTERESTS</span>
+
+            <h1>Gaming 🎮</h1>
+
+            <p>
+                Gaming is one of my favourite ways to relax and have fun.
+                I enjoy exploring different games, discovering new worlds,
+                and improving my skills.
+            </p>
+
+        </section>
+
+
+        <section class="games">
+
+            <a href="favourite-games.html" class="game-card">
+
+                <div class="game-icon">🎮</div>
+
+                <h2>Favourite Games</h2>
+
+                <p>
+                    These are some of the games I enjoy playing in my free time.
+                </p>
+
+            </a>
+
+
+
+            <div class="game-card">
+
+                <div class="game-icon">🖥️</div>
+
+                <h2>PC Gaming</h2>
+
+                <p>
+                    I enjoy PC gaming and learning more about computers,
+                    hardware, graphics and performance.
+                </p>
+
+            </div>
+
+
+            <div class="game-card">
+
+                <div class="game-icon">🏆</div>
+
+                <h2>Gaming Goals</h2>
+
+                <p>
+                    Improving my skills, completing challenging games,
+                    and trying new experiences.
+                </p>
+
+            </div>
+
+
+            <div class="game-card">
+
+                <div class="game-icon">🎬</div>
+
+                <h2>Gaming Content</h2>
+
+                <p>
+                    I can also use this page to showcase gaming clips,
+                    edits, videos and projects I've created.
+                </p>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <footer>
+
+        <p>© 2026 My Blog. All rights reserved.</p>
+
+    </footer>
+
+</body>
+
+</html>
