@@ -19,6 +19,11 @@
         }
 
 
+        html {
+            scroll-behavior: smooth;
+        }
+
+
         body {
             font-family: Arial, sans-serif;
             background: #09090b;
@@ -36,6 +41,14 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
+
+            background: rgba(9, 9, 11, 0.85);
+            backdrop-filter: blur(12px);
+
+            position: sticky;
+            top: 0;
+
+            z-index: 1000;
         }
 
 
@@ -49,7 +62,7 @@
 
 
         nav a:hover {
-            color: white;
+            color: #fff;
         }
 
 
@@ -79,6 +92,15 @@
             font-size: 60px;
 
             margin: 15px 0 25px;
+
+            transition: 0.3s;
+        }
+
+
+        h1:hover {
+            color: #a78bfa;
+
+            transform: translateX(5px);
         }
 
 
@@ -119,16 +141,26 @@
 
             font-size: 14px;
 
-            transition: 0.3s;
+            transition:
+                transform 0.3s ease,
+                border-color 0.3s ease,
+                color 0.3s ease,
+                background 0.3s ease,
+                box-shadow 0.3s ease;
         }
 
 
         .skill:hover {
             border-color: #8b5cf6;
 
-            color: white;
+            color: #fff;
 
-            transform: translateY(-3px);
+            background: #18151f;
+
+            transform: translateY(-5px) scale(1.03);
+
+            box-shadow:
+                0 8px 25px rgba(139, 92, 246, 0.18);
         }
 
 
@@ -161,7 +193,7 @@
         }
 
 
-        /* VIDEO GRID */
+        /* ================= VIDEO GRID ================= */
 
         .videos {
             display: grid;
@@ -174,9 +206,11 @@
         }
 
 
-        /* VIDEO CARD */
+        /* ================= VIDEO CARD ================= */
 
         .video-card {
+            position: relative;
+
             background: #111114;
 
             border: 1px solid #242428;
@@ -189,20 +223,63 @@
 
             color: white;
 
-            transition: 0.3s;
+            transition:
+                transform 0.4s ease,
+                border-color 0.4s ease,
+                background 0.4s ease,
+                box-shadow 0.4s ease;
+        }
+
+
+        /* Purple light sweep */
+
+        .video-card::before {
+            content: "";
+
+            position: absolute;
+
+            top: 0;
+            left: -120%;
+
+            width: 80%;
+            height: 100%;
+
+            background: linear-gradient(
+                90deg,
+                transparent,
+                rgba(139, 92, 246, 0.12),
+                transparent
+            );
+
+            transform: skewX(-20deg);
+
+            transition: 0.7s;
+
+            z-index: 2;
+
+            pointer-events: none;
+        }
+
+
+        .video-card:hover::before {
+            left: 140%;
         }
 
 
         .video-card:hover {
-            transform: translateY(-6px);
+            transform: translateY(-10px) scale(1.02);
 
             border-color: #8b5cf6;
 
             background: #15151a;
+
+            box-shadow:
+                0 15px 40px rgba(139, 92, 246, 0.18),
+                0 0 25px rgba(139, 92, 246, 0.08);
         }
 
 
-        /* VIDEO IMAGE */
+        /* ================= VIDEO IMAGE ================= */
 
         .video-thumbnail {
             width: 100%;
@@ -212,13 +289,35 @@
             object-fit: cover;
 
             display: block;
+
+            transition:
+                transform 0.5s ease,
+                filter 0.5s ease;
         }
 
 
-        /* VIDEO CONTENT */
+        .video-card:hover .video-thumbnail {
+            transform: scale(1.06);
+
+            filter: brightness(1.1);
+        }
+
+
+        /* ================= VIDEO CONTENT ================= */
 
         .video-content {
             padding: 20px;
+
+            position: relative;
+
+            z-index: 3;
+
+            transition: transform 0.4s ease;
+        }
+
+
+        .video-card:hover .video-content {
+            transform: translateY(-3px);
         }
 
 
@@ -228,11 +327,31 @@
             font-size: 11px;
 
             letter-spacing: 2px;
+
+            transition: 0.3s;
+        }
+
+
+        .video-card:hover .video-content span {
+            color: #a78bfa;
+
+            letter-spacing: 3px;
         }
 
 
         .video-content h3 {
             margin: 8px 0;
+
+            transition:
+                color 0.3s ease,
+                transform 0.3s ease;
+        }
+
+
+        .video-card:hover .video-content h3 {
+            color: #a78bfa;
+
+            transform: translateX(4px);
         }
 
 
@@ -240,6 +359,13 @@
             font-size: 14px;
 
             margin: 0;
+
+            transition: color 0.3s ease;
+        }
+
+
+        .video-card:hover .video-content p {
+            color: #aaa;
         }
 
 
@@ -260,14 +386,20 @@
 
             border-radius: 8px;
 
-            transition: 0.3s;
+            transition:
+                transform 0.3s ease,
+                background 0.3s ease,
+                box-shadow 0.3s ease;
         }
 
 
         .back:hover {
             background: #7c3aed;
 
-            transform: translateY(-2px);
+            transform: translateY(-4px);
+
+            box-shadow:
+                0 8px 25px rgba(139, 92, 246, 0.3);
         }
 
 
@@ -287,6 +419,11 @@
 
             .video-thumbnail {
                 height: 220px;
+            }
+
+
+            main {
+                padding: 70px 20px;
             }
 
         }

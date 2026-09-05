@@ -96,18 +96,73 @@
         }
 
 
+        /* GAME CARD */
+
         .game {
+            position: relative;
+
             background: #111114;
             border: 1px solid #242428;
             border-radius: 14px;
+
             overflow: hidden;
-            transition: 0.3s;
+            cursor: pointer;
+
+            transition:
+                transform 0.35s ease,
+                border-color 0.35s ease,
+                box-shadow 0.35s ease,
+                background 0.35s ease;
         }
 
+
+        /* CARD HOVER */
+
         .game:hover {
-            transform: translateY(-8px);
+            transform: translateY(-10px) scale(1.02);
+
             border-color: #8b5cf6;
-            box-shadow: 0 15px 40px rgba(139, 92, 246, 0.12);
+
+            background: #15151a;
+
+            box-shadow:
+                0 15px 40px rgba(0, 0, 0, 0.5),
+                0 0 30px rgba(139, 92, 246, 0.18);
+        }
+
+
+        /* LIGHT SWEEP */
+
+        .game::before {
+            content: "";
+
+            position: absolute;
+
+            top: 0;
+            left: -120%;
+
+            width: 60%;
+            height: 100%;
+
+            background: linear-gradient(
+                90deg,
+                transparent,
+                rgba(139, 92, 246, 0.18),
+                transparent
+            );
+
+            transform: skewX(-20deg);
+
+            transition: left 0.6s ease;
+
+            z-index: 2;
+
+            pointer-events: none;
+        }
+
+
+        .game:hover::before {
+            left: 130%;
         }
 
 
@@ -116,32 +171,99 @@
         .game-image {
             width: 100%;
             height: 220px;
+
             object-fit: cover;
             display: block;
+
+            transition:
+                transform 0.5s ease,
+                filter 0.5s ease;
+        }
+
+
+        /* IMAGE ZOOM */
+
+        .game:hover .game-image {
+            transform: scale(1.08);
+
+            filter: brightness(1.1);
         }
 
 
         /* GAME CONTENT */
 
         .game-content {
+            position: relative;
+
             padding: 25px;
+
+            z-index: 3;
+
+            transition:
+                transform 0.35s ease;
         }
+
+
+        .game:hover .game-content {
+            transform: translateY(-3px);
+        }
+
+
+        /* CATEGORY */
 
         .game-content span {
             color: #8b5cf6;
+
             font-size: 11px;
             letter-spacing: 2px;
+
+            transition:
+                letter-spacing 0.3s ease,
+                color 0.3s ease;
         }
+
+
+        .game:hover .game-content span {
+            letter-spacing: 3px;
+            color: #a78bfa;
+        }
+
+
+        /* GAME TITLE */
 
         .game-content h2 {
             margin: 8px 0 10px;
+
             font-size: 24px;
+
+            transition:
+                color 0.3s ease,
+                transform 0.3s ease;
         }
+
+
+        .game:hover .game-content h2 {
+            color: #a78bfa;
+
+            transform: translateX(5px);
+        }
+
+
+        /* DESCRIPTION */
 
         .game-content p {
             color: #aaa;
+
             line-height: 1.6;
             font-size: 14px;
+
+            transition:
+                color 0.3s ease;
+        }
+
+
+        .game:hover .game-content p {
+            color: #ccc;
         }
 
 
@@ -149,8 +271,10 @@
 
         .hours {
             display: flex;
+
             justify-content: space-between;
             align-items: center;
+
             margin-top: 25px;
             margin-bottom: 10px;
         }
@@ -163,6 +287,14 @@
         .hours-number {
             font-size: 14px;
             font-weight: bold;
+
+            transition:
+                color 0.3s ease;
+        }
+
+
+        .game:hover .hours-number {
+            color: #a78bfa;
         }
 
 
@@ -171,15 +303,36 @@
         .progress-bar {
             width: 100%;
             height: 8px;
+
             background: #242428;
+
             border-radius: 20px;
+
             overflow: hidden;
         }
 
+
         .progress {
             height: 100%;
+
             background: #8b5cf6;
+
             border-radius: 20px;
+
+            transition:
+                box-shadow 0.3s ease,
+                transform 0.3s ease;
+        }
+
+
+        /* STATUS BAR GLOW */
+
+        .game:hover .progress {
+            box-shadow:
+                0 0 10px rgba(139, 92, 246, 0.8),
+                0 0 20px rgba(139, 92, 246, 0.4);
+
+            transform: scaleY(1.25);
         }
 
 
@@ -187,17 +340,32 @@
 
         .back {
             display: inline-block;
+
             margin-top: 50px;
+
             padding: 12px 20px;
+
             border: 1px solid #8b5cf6;
             border-radius: 8px;
+
             color: white;
+
             text-decoration: none;
-            transition: 0.3s;
+
+            transition:
+                background 0.3s ease,
+                transform 0.3s ease,
+                box-shadow 0.3s ease;
         }
+
 
         .back:hover {
             background: #8b5cf6;
+
+            transform: translateX(-5px);
+
+            box-shadow:
+                0 0 20px rgba(139, 92, 246, 0.3);
         }
 
 
@@ -205,8 +373,11 @@
 
         footer {
             text-align: center;
+
             padding: 30px;
+
             border-top: 1px solid #242428;
+
             color: #666;
         }
 
@@ -289,7 +460,7 @@
             <div class="game">
 
                 <img
-                    src="C:\Users\User\OneDrive\Documents\Practice\images\aasaasaa.jpg"
+                    src="images/aasaasaa.jpg"
                     alt="Rocket League"
                     class="game-image"
                 >
@@ -339,7 +510,7 @@
             <div class="game">
 
                 <img
-                    src="C:\Users\User\OneDrive\Documents\Practice\images\Official GTA VI cover art.jpg"
+                    src="images/Official GTA VI cover art.jpg"
                     alt="Grand Theft Auto VI"
                     class="game-image"
                 >
@@ -389,7 +560,7 @@
             <div class="game">
 
                 <img
-                    src="C:\Users\User\OneDrive\Documents\Practice\images\Mbappe FC27 Cover.jpg"
+                    src="images/Mbappe FC27 Cover.jpg"
                     alt="EA Sports FC 27"
                     class="game-image"
                 >
@@ -452,7 +623,9 @@
 
     <footer>
 
-        <p>© 2026 My Blog. All rights reserved.</p>
+        <p>
+            © 2026 My Blog. All rights reserved.
+        </p>
 
     </footer>
 

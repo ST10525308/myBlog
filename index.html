@@ -1,8 +1,8 @@
-```html
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -26,6 +26,7 @@
             color: #f5f5f5;
             line-height: 1.6;
         }
+
 
         /* ================= NAVBAR ================= */
 
@@ -75,6 +76,7 @@
         nav a:hover {
             color: #fff;
         }
+
 
         /* ================= HERO ================= */
 
@@ -153,6 +155,7 @@
             background: #18181b;
         }
 
+
         /* ================= PROFILE IMAGE ================= */
 
         .profile-container {
@@ -171,7 +174,20 @@
 
             box-shadow:
                 0 0 80px rgba(139, 92, 246, 0.15);
+
+            transition:
+                transform 0.5s ease,
+                box-shadow 0.5s ease;
         }
+
+        .profile:hover {
+            transform: scale(1.04);
+
+            box-shadow:
+                0 0 80px rgba(139, 92, 246, 0.3),
+                0 0 120px rgba(139, 92, 246, 0.12);
+        }
+
 
         /* ================= SECTIONS ================= */
 
@@ -195,6 +211,7 @@
             font-size: 38px;
         }
 
+
         /* ================= ABOUT ================= */
 
         .about {
@@ -211,6 +228,7 @@
             margin-bottom: 20px;
         }
 
+
         /* ================= INTERESTS ================= */
 
         .interests {
@@ -222,7 +240,12 @@
             gap: 20px;
         }
 
+
+        /* INTEREST CARD */
+
         .interest-card {
+            position: relative;
+
             background: #111114;
 
             border: 1px solid #242428;
@@ -231,27 +254,128 @@
 
             border-radius: 12px;
 
-            transition: 0.3s;
+            text-decoration: none;
+            color: inherit;
+            display: block;
+
+            overflow: hidden;
+
+            cursor: pointer;
+
+            transition:
+                transform 0.35s ease,
+                border-color 0.35s ease,
+                background 0.35s ease,
+                box-shadow 0.35s ease;
         }
+
+
+        /* CARD HOVER */
 
         .interest-card:hover {
-            transform: translateY(-6px);
+            transform: translateY(-10px) scale(1.02);
+
             border-color: #8b5cf6;
+
+            background: #15151a;
+
+            box-shadow:
+                0 15px 35px rgba(0, 0, 0, 0.5),
+                0 0 30px rgba(139, 92, 246, 0.18);
         }
+
+
+        /* PURPLE LIGHT SWEEP */
+
+        .interest-card::before {
+            content: "";
+
+            position: absolute;
+
+            top: 0;
+            left: -120%;
+
+            width: 60%;
+            height: 100%;
+
+            background: linear-gradient(
+                90deg,
+                transparent,
+                rgba(139, 92, 246, 0.18),
+                transparent
+            );
+
+            transform: skewX(-20deg);
+
+            transition: left 0.6s ease;
+
+            pointer-events: none;
+        }
+
+
+        .interest-card:hover::before {
+            left: 130%;
+        }
+
+
+        /* ICON */
 
         .interest-icon {
+            position: relative;
+            z-index: 2;
+
             font-size: 30px;
             margin-bottom: 20px;
+
+            transition:
+                transform 0.35s ease;
         }
+
+
+        .interest-card:hover .interest-icon {
+            transform: scale(1.15) rotate(-5deg);
+        }
+
+
+        /* TITLE */
 
         .interest-card h3 {
+            position: relative;
+            z-index: 2;
+
             margin-bottom: 10px;
+
+            transition:
+                color 0.3s ease,
+                transform 0.3s ease;
         }
 
+
+        .interest-card:hover h3 {
+            color: #a78bfa;
+
+            transform: translateX(5px);
+        }
+
+
+        /* DESCRIPTION */
+
         .interest-card p {
+            position: relative;
+            z-index: 2;
+
             color: #888;
             font-size: 14px;
+
+            transition:
+                color 0.3s ease;
         }
+
+
+        .interest-card:hover p {
+            color: #ccc;
+        }
+
 
         /* ================= BLOG ================= */
 
@@ -277,11 +401,20 @@
 
             overflow: hidden;
 
-            transition: 0.3s;
+            transition:
+                transform 0.35s ease,
+                border-color 0.35s ease,
+                box-shadow 0.35s ease;
         }
 
         .post:hover {
-            transform: translateY(-5px);
+            transform: translateY(-8px);
+
+            border-color: #8b5cf6;
+
+            box-shadow:
+                0 15px 35px rgba(0, 0, 0, 0.4),
+                0 0 25px rgba(139, 92, 246, 0.12);
         }
 
         .post-image {
@@ -298,6 +431,13 @@
             justify-content: center;
 
             font-size: 45px;
+
+            transition:
+                transform 0.5s ease;
+        }
+
+        .post:hover .post-image {
+            transform: scale(1.05);
         }
 
         .post-content {
@@ -317,6 +457,7 @@
             color: #888;
             font-size: 14px;
         }
+
 
         /* ================= SOCIAL ================= */
 
@@ -348,15 +489,27 @@
 
             border-radius: 8px;
 
-            transition: 0.3s;
+            transition:
+                background 0.3s ease,
+                border-color 0.3s ease,
+                color 0.3s ease,
+                transform 0.3s ease,
+                box-shadow 0.3s ease;
         }
 
         .social-links a:hover {
             background: #8b5cf6;
+
             border-color: #8b5cf6;
+
             color: white;
+
             transform: translateY(-3px);
+
+            box-shadow:
+                0 8px 20px rgba(139, 92, 246, 0.25);
         }
+
 
         /* ================= FOOTER ================= */
 
@@ -372,6 +525,7 @@
 
             font-size: 13px;
         }
+
 
         /* ================= RESPONSIVE ================= */
 
@@ -410,26 +564,18 @@
                 gap: 10px;
                 text-align: center;
             }
-            .interest-card {
-                text-decoration: none;
-                color: inherit;
-                display: block;
-            }
 
-            .interest-card {
-                text-decoration: none;
-                color: inherit;
-                display: block;
-            }
         }
 
     </style>
 
 </head>
 
+
 <body>
 
-    <!-- NAVIGATION -->
+
+    <!-- ================= NAVIGATION ================= -->
 
     <nav>
 
@@ -438,17 +584,34 @@
         </div>
 
         <ul>
-            <li><a href="#home">Home</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#interests">Interests</a></li>
-            <li><a href="#blog">Blog</a></li>
-            <li><a href="#social">Social</a></li>
+
+            <li>
+                <a href="#home">Home</a>
+            </li>
+
+            <li>
+                <a href="#about">About</a>
+            </li>
+
+            <li>
+                <a href="#interests">Interests</a>
+            </li>
+
+            <li>
+                <a href="#blog">Blog</a>
+            </li>
+
+            <li>
+                <a href="#social">Social</a>
+            </li>
+
         </ul>
 
     </nav>
 
 
-    <!-- HERO -->
+
+    <!-- ================= HERO ================= -->
 
     <section class="hero" id="home">
 
@@ -486,8 +649,6 @@
 
         <div class="profile-container">
 
-            <!-- Replace profile.jpg with your photo -->
-
             <img
                 src="C:\Users\User\Downloads\cat.jpg"
                 alt="My Profile Photo"
@@ -499,7 +660,8 @@
     </section>
 
 
-    <!-- ABOUT -->
+
+    <!-- ================= ABOUT ================= -->
 
     <section class="about" id="about">
 
@@ -530,7 +692,8 @@
     </section>
 
 
-    <!-- INTERESTS -->
+
+    <!-- ================= INTERESTS ================= -->
 
     <section id="interests">
 
@@ -544,33 +707,57 @@
 
 
         <div class="interests">
-            <a href="technology.html" class="interest-card">
-
-             <div class="interest-icon">
-                💻
-            </div>
-
-            <h3>Technology</h3>
-
-            <p>
-                Web development, editing, AI and
-                discovering new technology.
-            </p>
-
-        </a>
-
-          
 
 
-        
-        <a 
-            href="gaming.html" class="interest-card">
-            <h3>🎮 Gaming</h3>
-            <p>I enjoy playing games, working on gaming projects and sharing my experiences.</p>
-        </a>
+            <!-- TECHNOLOGY -->
+
+            <a
+                href="technology.html"
+                class="interest-card"
+            >
+
+                <div class="interest-icon">
+                    💻
+                </div>
+
+                <h3>
+                    Technology
+                </h3>
+
+                <p>
+                    Web development, editing, AI and
+                    discovering new technology.
+                </p>
+
+            </a>
 
 
 
+            <!-- GAMING -->
+
+            <a
+                href="gaming.html"
+                class="interest-card"
+            >
+
+                <div class="interest-icon">
+                    🎮
+                </div>
+
+                <h3>
+                    Gaming
+                </h3>
+
+                <p>
+                    I enjoy playing games, working on gaming
+                    projects and sharing my experiences.
+                </p>
+
+            </a>
+
+
+
+            <!-- MOVIES -->
 
             <div class="interest-card">
 
@@ -578,7 +765,9 @@
                     🎬
                 </div>
 
-                <h3>Movies</h3>
+                <h3>
+                    Movies
+                </h3>
 
                 <p>
                     Films, directors, stories and
@@ -588,13 +777,18 @@
             </div>
 
 
+
+            <!-- MUSIC -->
+
             <div class="interest-card">
 
                 <div class="interest-icon">
                     🎵
                 </div>
 
-                <h3>Music</h3>
+                <h3>
+                    Music
+                </h3>
 
                 <p>
                     Artists, albums, playlists and
@@ -604,13 +798,18 @@
             </div>
 
 
+
+            <!-- PHOTOGRAPHY -->
+
             <div class="interest-card">
 
                 <div class="interest-icon">
                     📷
                 </div>
 
-                <h3>Photography</h3>
+                <h3>
+                    Photography
+                </h3>
 
                 <p>
                     Photos, places I've visited and
@@ -620,13 +819,18 @@
             </div>
 
 
+
+            <!-- LEARNING -->
+
             <div class="interest-card">
 
                 <div class="interest-icon">
                     🚀
                 </div>
 
-                <h3>Learning</h3>
+                <h3>
+                    Learning
+                </h3>
 
                 <p>
                     New skills, personal projects and
@@ -635,12 +839,14 @@
 
             </div>
 
+
         </div>
 
     </section>
 
 
-    <!-- BLOG -->
+
+    <!-- ================= BLOG ================= -->
 
     <section class="blog" id="blog">
 
@@ -654,6 +860,7 @@
 
 
         <div class="posts">
+
 
             <article class="post">
 
@@ -682,6 +889,7 @@
             </article>
 
 
+
             <article class="post">
 
                 <div class="post-image">
@@ -706,6 +914,7 @@
                 </div>
 
             </article>
+
 
 
             <article class="post">
@@ -733,12 +942,14 @@
 
             </article>
 
+
         </div>
 
     </section>
 
 
-    <!-- SOCIAL -->
+
+    <!-- ================= SOCIAL ================= -->
 
     <section class="social" id="social">
 
@@ -757,25 +968,38 @@
 
         <div class="social-links">
 
-            <!-- Replace # with your real links -->
-
-            <a href=https://www.instagram.com/m_bibo1/ target="_blank">
+            <a
+                href="https://www.instagram.com/m_bibo1/"
+                target="_blank"
+            >
                 Instagram
             </a>
 
-            <a href="https://www.tiktok.com/@melusibibo" target="_blank">
+            <a
+                href="https://www.tiktok.com/@melusibibo"
+                target="_blank"
+            >
                 TikTok
             </a>
 
-            <a href="#" target="_blank">
+            <a
+                href="#"
+                target="_blank"
+            >
                 X / Twitter
             </a>
 
-            <a href="https://www.youtube.com/@bibo.1" target="_blank">
+            <a
+                href="https://www.youtube.com/@bibo.1"
+                target="_blank"
+            >
                 YouTube
             </a>
 
-            <a href="https://github.com/ST10525308" target="_blank">
+            <a
+                href="https://github.com/ST10525308"
+                target="_blank"
+            >
                 GitHub
             </a>
 
@@ -784,7 +1008,8 @@
     </section>
 
 
-    <!-- FOOTER -->
+
+    <!-- ================= FOOTER ================= -->
 
     <footer>
 
@@ -793,6 +1018,7 @@
         </span>
 
     </footer>
+
 
 </body>
 

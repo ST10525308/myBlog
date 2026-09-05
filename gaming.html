@@ -22,6 +22,7 @@
             min-height: 100vh;
         }
 
+
         /* NAVBAR */
 
         nav {
@@ -49,6 +50,7 @@
             color: #8b5cf6;
         }
 
+
         /* MAIN */
 
         main {
@@ -57,6 +59,9 @@
             margin: auto;
             padding: 100px 0;
         }
+
+
+        /* PAGE TITLE */
 
         .page-title {
             margin-bottom: 60px;
@@ -80,6 +85,7 @@
             line-height: 1.7;
         }
 
+
         /* GAMING CARDS */
 
         .games {
@@ -88,42 +94,149 @@
             gap: 20px;
         }
 
+
+        /* CARD */
+
         .game-card {
+            position: relative;
+
             background: #111114;
             border: 1px solid #242428;
             border-radius: 12px;
             padding: 30px;
-            transition: 0.3s;
+
+            text-decoration: none;
+            color: white;
+            display: block;
+
+            overflow: hidden;
+            cursor: pointer;
+
+            transition:
+                transform 0.35s ease,
+                border-color 0.35s ease,
+                background 0.35s ease,
+                box-shadow 0.35s ease;
         }
+
+
+        /* CARD HOVER */
 
         .game-card:hover {
-            transform: translateY(-6px);
+            transform: translateY(-10px) scale(1.02);
+
             border-color: #8b5cf6;
+
             background: #15151a;
+
+            box-shadow:
+                0 15px 35px rgba(0, 0, 0, 0.5),
+                0 0 30px rgba(139, 92, 246, 0.18);
         }
+
+
+        /* PURPLE LIGHT SWEEP */
+
+        .game-card::before {
+            content: "";
+
+            position: absolute;
+
+            top: 0;
+            left: -120%;
+
+            width: 60%;
+            height: 100%;
+
+            background: linear-gradient(
+                90deg,
+                transparent,
+                rgba(139, 92, 246, 0.15),
+                transparent
+            );
+
+            transform: skewX(-20deg);
+
+            transition: left 0.6s ease;
+
+            pointer-events: none;
+        }
+
+
+        .game-card:hover::before {
+            left: 130%;
+        }
+
+
+        /* ICON */
 
         .game-icon {
+            position: relative;
+            z-index: 2;
+
             font-size: 40px;
             margin-bottom: 20px;
+
+            transition:
+                transform 0.35s ease;
         }
+
+
+        .game-card:hover .game-icon {
+            transform: scale(1.15) rotate(-5deg);
+        }
+
+
+        /* TITLE */
 
         .game-card h2 {
+            position: relative;
+            z-index: 2;
+
             margin-bottom: 10px;
+
+            transition:
+                color 0.3s ease,
+                transform 0.3s ease;
         }
 
+
+        .game-card:hover h2 {
+            color: #a78bfa;
+            transform: translateX(5px);
+        }
+
+
+        /* DESCRIPTION */
+
         .game-card p {
+            position: relative;
+            z-index: 2;
+
             color: #aaa;
             line-height: 1.6;
+
+            transition:
+                color 0.3s ease;
         }
+
+
+        .game-card:hover p {
+            color: #ccc;
+        }
+
 
         /* FOOTER */
 
         footer {
             text-align: center;
             padding: 30px;
+
             border-top: 1px solid #242428;
+
             color: #666;
         }
+
 
         /* MOBILE */
 
@@ -146,37 +259,45 @@
             }
 
             .game-card {
-                background: #111114;
-                border: 1px solid #242428;
-                border-radius: 12px;
                 padding: 30px;
-                transition: 0.3s;
+            }
 
-                text-decoration: none;
-                color: white;
-                display: block;
-            }       
         }
 
     </style>
+
 </head>
 
+
 <body>
+
+
+    <!-- NAVBAR -->
 
     <nav>
 
         <h2>MY BLOG</h2>
 
         <div>
+
             <a href="index.html">Home</a>
+
             <a href="technology.html">Technology</a>
+
             <a href="gaming.html">Gaming</a>
+
         </div>
 
     </nav>
 
 
+
+    <!-- MAIN -->
+
     <main>
+
+
+        <!-- PAGE TITLE -->
 
         <section class="page-title">
 
@@ -193,14 +314,23 @@
         </section>
 
 
+
+        <!-- GAMING CARDS -->
+
         <section class="games">
 
-            <a href="favourite-games.html" class="game-card"
-                style="text-decoration: none; color: white;">
 
-                <div class="game-icon">🎮</div>
+            <!-- FAVOURITE GAMES -->
 
-                <h2>Favourite Games</h2>
+            <a href="favourite-games.html" class="game-card">
+
+                <div class="game-icon">
+                    🎮
+                </div>
+
+                <h2>
+                    Favourite Games
+                </h2>
 
                 <p>
                     These are some of the games I enjoy playing in my free time.
@@ -210,11 +340,17 @@
 
 
 
+            <!-- PC GAMING -->
+
             <div class="game-card">
 
-                <div class="game-icon">🖥️</div>
+                <div class="game-icon">
+                    🖥️
+                </div>
 
-                <h2>PC Gaming</h2>
+                <h2>
+                    PC Gaming
+                </h2>
 
                 <p>
                     I enjoy PC gaming and learning more about computers,
@@ -224,11 +360,18 @@
             </div>
 
 
+
+            <!-- GAMING GOALS -->
+
             <div class="game-card">
 
-                <div class="game-icon">🏆</div>
+                <div class="game-icon">
+                    🏆
+                </div>
 
-                <h2>Gaming Goals</h2>
+                <h2>
+                    Gaming Goals
+                </h2>
 
                 <p>
                     Improving my skills, completing challenging games,
@@ -238,11 +381,18 @@
             </div>
 
 
+
+            <!-- GAMING CONTENT -->
+
             <div class="game-card">
 
-                <div class="game-icon">🎬</div>
+                <div class="game-icon">
+                    🎬
+                </div>
 
-                <h2>Gaming Content</h2>
+                <h2>
+                    Gaming Content
+                </h2>
 
                 <p>
                     I can also use this page to showcase gaming clips,
@@ -251,16 +401,23 @@
 
             </div>
 
+
         </section>
 
     </main>
 
 
+
+    <!-- FOOTER -->
+
     <footer>
 
-        <p>© 2026 My Blog. All rights reserved.</p>
+        <p>
+            © 2026 My Blog. All rights reserved.
+        </p>
 
     </footer>
+
 
 </body>
 
